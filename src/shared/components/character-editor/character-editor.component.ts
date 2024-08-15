@@ -24,9 +24,6 @@ import { Character } from 'src/shared/models/character.model';
 })
 export class CharacterEditorComponent {
   readonly characterService = inject(CharacterService);
-  // readonly #urlRegex =
-  //   /^(?:(http(s)?)?(sftp)?(ftp)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
-  readonly #englishOnly = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
 
   character = toSignal(this.characterService.characterToEdit$);
   isNewCharacter = signal(true);
