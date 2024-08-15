@@ -1,0 +1,101 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.header {
+  height: $headerMobileHeight;
+  width: 100%;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba($purple, 0.3);
+  box-shadow: 0px 4px 9px -2px rgba(156, 156, 156, 0.5);
+  transition: background-color ease-in 0.4s;
+  @include flex-space-between;
+  @include fluid-mobile(font-size, 18px, 24px);
+  @include fluid-mobile(padding-left padding-right, 13px, 25px);
+  @include desktop {
+    height: $headerHeight;
+    justify-content: flex-start;
+    @include fluid-desktop(padding-left padding-right, 100px, 350px);
+    @include fluid-desktop(font-size, 18px, 22px);
+  }
+
+  &.full-bg {
+    background-color: white;
+    color: $black;
+
+    .menu-btn {
+      ::ng-deep {
+        .bar1,
+        .bar2,
+        .bar3 {
+          background-color: $black;
+        }
+      }
+    }
+  }
+
+  &.no-shadow {
+    box-shadow: none;
+  }
+
+  .title {
+    cursor: pointer;
+    transition: color 0.4s ease-in;
+    @include fluid-mobile(font-size, 24px, 34px);
+    @include fluid-desktop(margin-right, 100px, 200px);
+    @include desktop {
+      @include fluid-desktop(font-size, 28px, 36px);
+      &:hover {
+        color: $purple;
+      }
+    }
+  }
+
+  .menu-btn {
+    z-index: 102;
+    ::ng-deep {
+      .bar1,
+      .bar2,
+      .bar3 {
+        background-color: $black;
+      }
+    }
+  }
+
+  .desktop-menu {
+    height: 100%;
+    z-index: 101;
+    transition: color background-color 0.4s;
+    ul {
+      list-style-type: none;
+      height: 100%;
+      width: 100%;
+      @include flex-center;
+      .menu-item {
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+        position: relative;
+        @include fluid-desktop(margin-left margin-right, 15px, 40px);
+        &::after {
+          position: absolute;
+          display: block;
+          content: ' ';
+          width: 0;
+          height: 4px;
+          transition: all 0.3s ease-in-out;
+          background-color: $black;
+        }
+        &:hover,
+        &.selected {
+          color: $purple;
+          &::after {
+            width: 100%;
+            background-color: $purple;
+          }
+        }
+      }
+    }
+  }
+}

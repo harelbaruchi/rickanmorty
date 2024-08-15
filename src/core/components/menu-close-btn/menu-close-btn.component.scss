@@ -1,0 +1,26 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.bar1,
+.bar2,
+.bar3 {
+  height: 5px;
+  margin: 4px 0;
+  background-color: $black;
+  transition: all 0.4s;
+  @include fluid-mobile(width, 25px, 30px);
+}
+
+.close-btn {
+  .bar1 {
+    transform: translate(0, 9px) rotate(-45deg);
+  }
+
+  .bar2 {
+    opacity: 0;
+  }
+
+  .bar3 {
+    transform: translate(0, -9px) rotate(45deg);
+  }
+}

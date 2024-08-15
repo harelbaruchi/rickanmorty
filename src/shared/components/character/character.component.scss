@@ -1,0 +1,51 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.character-div {
+  @include fluid-mobile(margin-bottom, 20px, 30px);
+  border-radius: 14px;
+  background: linear-gradient(
+    79.3deg,
+    $purple -75.61%,
+    rgba(255, 255, 255, 0) 84.27%
+  );
+  box-shadow: 0 7px 21.38px #0345a81a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .profile-pic {
+    @include fluid-mobile(width height, 80px, 120px);
+    border-radius: 14px;
+  }
+  .properties-section {
+    width: 30%;
+    display: flex;
+    .name {
+      @include fluid-mobile(font-size, 12px, 14px);
+    }
+    .property {
+      @include fluid-mobile(font-size, 12px, 14px);
+      @include fluid-mobile(line-height, 12px, 14px);
+    }
+  }
+
+  .action-section {
+    margin: 0 auto;
+    .edit {
+      display: flex;
+      @include fluid-mobile(width height, 15px, 20px);
+      background: url('../../../assets/images/edit-black.png');
+      background-size: contain;
+      border: 1px solid;
+    }
+
+    .delete {
+      margin-top: 1em;
+      display: flex;
+      @include fluid-mobile(width height, 15px, 20px);
+      background: url('../../../assets/images/delete.png');
+      background-size: contain;
+      border: 1px solid;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+@function strip-unit($value) {
+  @return calc($value / 1px);
+}
+
+@function is-important($important) {
+  @return if($important == '!important', '!important', null);
+}
+
+@mixin fluid-type(
+  $properties,
+  $min-vw,
+  $max-vw,
+  $min-value,
+  $max-value,
+  $important: ''
+) {
+  @each $property in $properties {
+    #{$property}: $min-value is-important($important);
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(
+          #{$min-value} +
+            #{strip-unit($max-value - $min-value)} *
+            (100vw - #{$min-vw}) /
+            #{strip-unit($max-vw - $min-vw)}
+        )
+        is-important($important);
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value is-important($important);
+    }
+  }
+}
+
+@mixin fluid-desktop($properties, $min-value, $max-value, $important: '') {
+  @include fluid-type(
+    $properties,
+    1024px,
+    1920px,
+    $min-value,
+    $max-value,
+    $important
+  );
+}
+
+@mixin fluid-mobile($properties, $min-value, $max-value, $important: '') {
+  @include fluid-type(
+    $properties,
+    320px,
+    1023px,
+    $min-value,
+    $max-value,
+    $important
+  );
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 640px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin ios {
+  @supports (-webkit-touch-callout: none) {
+    @content;
+  }
+}
+
+@mixin flex-align {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-justify {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-center {
+  @include flex-align;
+  justify-content: center;
+}
+
+@mixin flex-space-between {
+  @include flex-align;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  flex-direction: column;
+  @include flex-center;
+}

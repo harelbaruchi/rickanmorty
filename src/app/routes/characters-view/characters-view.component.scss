@@ -1,0 +1,60 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.characters-page {
+  @include flex-column-center;
+  @include fluid-mobile(padding-top, 20px, 40px);
+
+  .page-title {
+    @include fluid-mobile(margin-bottom, 10px, 15px);
+  }
+
+  .page-desc {
+    text-align: center;
+    padding: 0 17%;
+    @include fluid-mobile(margin-bottom, 15px, 30px);
+    @include fluid-mobile(font-size, 14px, 16px);
+    @include desktop {
+      @include fluid-desktop(font-size, 16px, 18px);
+    }
+  }
+
+  .actions {
+    display: flex;
+    position: sticky;
+    top: 20%;
+    @include fluid-mobile(margin-top, 15px, 20px);
+  }
+
+  .characters-section {
+    width: 96%;
+    .character-div {
+      @include fluid-mobile(margin-bottom, 20px, 30px);
+      border-radius: 14px;
+      background: linear-gradient(
+        79.3deg,
+        $purple -75.61%,
+        rgba(255, 255, 255, 0) 84.27%
+      );
+      box-shadow: 0 7px 21.38px #0345a81a;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .profile-pic {
+        @include fluid-mobile(width height, 80px, 120px);
+        border-radius: 14px;
+      }
+      .properties-section {
+        width: 30%;
+        display: flex;
+        .name {
+          @include fluid-mobile(font-size, 12px, 14px);
+        }
+        .property {
+          @include fluid-mobile(font-size, 12px, 14px);
+          @include fluid-mobile(line-height, 12px, 14px);
+        }
+      }
+    }
+  }
+}

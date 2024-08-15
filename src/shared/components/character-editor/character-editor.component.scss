@@ -1,0 +1,50 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.character-editor {
+  width: 96vw;
+  top: 20%;
+  height: auto;
+  border-radius: 20px;
+  background-color: white;
+  position: relative;
+  @include flex-column;
+  @include fluid-mobile(padding, 10px, 20px);
+
+  @include desktop {
+    width: 60vw;
+  }
+
+  .page-title {
+    @include fluid-mobile(margin-bottom, 20px, 25px);
+    @include desktop {
+      margin-bottom: 40px;
+    }
+  }
+
+  .close-btn {
+    cursor: pointer;
+    position: absolute;
+    background-image: url('../../../assets/images/close-btn.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    @include fluid-mobile(width height, 15px, 20px);
+  }
+
+  .character-form {
+    width: 50%;
+    margin: 0 auto;
+    @include fluid-mobile(font-size, 14px, 18px);
+
+    .input-container {
+      @include fluid-mobile(margin-bottom, 10px, 15px);
+      @include desktop {
+        margin-bottom: 20px;
+      }
+      input {
+        font-size: inherit;
+      }
+    }
+  }
+}

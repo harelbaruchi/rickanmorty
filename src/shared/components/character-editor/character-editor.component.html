@@ -1,0 +1,72 @@
+<div class="character-editor">
+  <div class="close-btn" (click)="closeEditor()"></div>
+  <h2 class="page-title">Character Editor</h2>
+  <form
+    [formGroup]="characterForm"
+    (submit)="submitCharacter()"
+    class="character-form"
+  >
+    <div class="input-container">
+      <label for="name-ctrl" class="form-label">Name</label>
+      <input
+        id="name-ctrl"
+        type="text"
+        class="form-control"
+        formControlName="name"
+      />
+    </div>
+    <div class="input-container">
+      <label for="gender-ctrl" class="form-label">Gender</label>
+      <input
+        id="gender-ctrl"
+        type="text"
+        class="form-control"
+        formControlName="gender"
+      />
+    </div>
+    <div class="input-container">
+      <label for="species-ctrl" class="form-label">Species</label>
+      <input
+        id="species-ctrl"
+        type="text"
+        class="form-control"
+        formControlName="species"
+      />
+    </div>
+
+    <div class="input-container">
+      <label for="status-ctrl" class="form-label">Status</label>
+      <input
+        id="status-ctrl"
+        type="text"
+        class="form-control"
+        formControlName="status"
+      />
+    </div>
+    <div class="input-container">
+      <label for="type-ctrl" class="form-label">Type</label>
+      <input
+        id="type-ctrl"
+        type="text"
+        class="form-control"
+        formControlName="type"
+      />
+    </div>
+    <div class="input-container">
+      <label for="image-ctrl" class="form-label">Image URL</label>
+      <input
+        id="image-ctrl"
+        type="text"
+        class="form-control"
+        formControlName="image"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="!characterForm.valid"
+    >
+      {{ isNewCharacter() ? 'Create' : 'Edit' }}
+    </button>
+  </form>
+</div>

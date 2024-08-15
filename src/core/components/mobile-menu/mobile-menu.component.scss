@@ -1,0 +1,30 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.mobile-menu {
+  position: absolute;
+  background-color: rgb(162, 174, 243);
+  top: $headerMobileHeight;
+  left: 0;
+  z-index: 101;
+  transition: all 0.4s;
+  height: calc(100vh - $headerMobileHeight);
+  width: 100%;
+  overflow: hidden;
+  ul {
+    height: 100%;
+    width: 100%;
+    @include flex-column;
+    @include fluid-mobile(padding-left padding-right, 13px, 25px);
+    .menu-item {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+      white-space: nowrap;
+      @include fluid-mobile(margin-bottom margin-top, 15px, 20px);
+      &.selected {
+        color: $purple;
+      }
+    }
+  }
+}

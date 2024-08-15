@@ -1,0 +1,17 @@
+<div class="characters-page">
+  <h2 class="page-title">Rick & Morty characters</h2>
+  <p class="page-desc">
+    Here you can watch, edit , and and create all the characters you want
+  </p>
+  <div class="characters-section">
+    <app-character
+      *ngFor="let character of characters | async"
+      [character]="character"
+    ></app-character>
+  </div>
+  <div class="actions">
+    <button class="btn btn-outline-success" (click)="openEditor(undefined)">
+      Create
+    </button>
+  </div>
+</div>

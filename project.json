@@ -22,7 +22,10 @@
             "input": "public"
           }
         ],
-        "styles": ["./src/styles.scss"],
+        "styles": [
+          "./src/styles.scss",
+          "node_modules/material-icons/iconfont/material-icons.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -47,6 +50,12 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.development.ts"
+            }
+          ],
           "namedChunks": true
         }
       },

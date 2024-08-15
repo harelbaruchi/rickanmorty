@@ -1,0 +1,30 @@
+<header
+  class="header"
+  [class.full-bg]="isScrolled() || (isMobile() && isOpen())"
+  [class.no-shadow]="isOpen() && isMobile()"
+>
+  <h1 class="title" (click)="navigate()">
+    {{ title }}
+  </h1>
+  <!-- menu for desktop -->
+  <nav *ngIf="!isMobile()" class="desktop-menu">
+    <ul>
+      <li
+        *ngFor="let item of menuItems()"
+        class="menu-item"
+        [class.selected]="selectedItem() === item"
+        (click)="navigate(item)"
+      >
+        {{ item.title }}
+      </li>
+    </ul>
+  </nav>
+  <app-mobile-menu *ngIf="isMobile()" [isOpen]="isOpen()"></app-mobile-menu>
+  <!-- menu for mobile -->
+  <app-menu-close-btn
+    *ngIf="isMobile()"
+    class="menu-btn"
+    [isOpen]="isOpen()"
+    (visibilityChanged)="openSubMenu()"
+  ></app-menu-close-btn>
+</header>

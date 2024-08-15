@@ -1,1 +1,13 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<div class="rickanmorty-app">
+  <app-header></app-header>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+  <div
+    *ngIf="isEditorOpen()"
+    class="shadow-overlay editor-container"
+    @openClose
+  >
+    <app-character-editor></app-character-editor>
+  </div>
+</div>
