@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  OnInit,
   signal,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -22,7 +23,7 @@ import { Character } from 'src/shared/models/character.model';
   styleUrl: './character-editor.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CharacterEditorComponent {
+export class CharacterEditorComponent implements OnInit {
   readonly characterService = inject(CharacterService);
 
   character = toSignal(this.characterService.characterToEdit$);
@@ -54,6 +55,12 @@ export class CharacterEditorComponent {
       Validators.compose([Validators.required, Validators.minLength(10)])
     ),
   });
+
+  // you'd be surprised to learn that i forgot to initialize the form at least ,
+  //it didnt work properly do to onpush change detection strategy ...
+  ngOnInit(): void {
+    this.initCharacterForm();
+  }
 
   initCharacterForm() {
     const characterDetails = this.character();

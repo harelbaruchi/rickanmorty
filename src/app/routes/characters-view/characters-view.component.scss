@@ -21,9 +21,11 @@
 
   .actions {
     display: flex;
-    position: sticky;
-    top: 20%;
+    margin: 2em auto;
     @include fluid-mobile(margin-top, 15px, 20px);
+    .btn {
+      background: transparent;
+    }
   }
 
   .characters-section {

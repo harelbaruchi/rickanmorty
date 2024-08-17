@@ -3,15 +3,15 @@
   <p class="page-desc">
     Here you can watch, edit , and and create all the characters you want
   </p>
+  <div class="actions">
+    <button class="btn btn-outline-success" (click)="openEditor(undefined)">
+      Create
+    </button>
+  </div>
   <div class="characters-section">
     <app-character
       *ngFor="let character of characters | async"
       [character]="character"
     ></app-character>
-  </div>
-  <div class="actions">
-    <button class="btn btn-outline-success" (click)="openEditor(undefined)">
-      Create
-    </button>
   </div>
 </div>

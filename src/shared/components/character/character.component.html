@@ -1,13 +1,18 @@
 <div class="character-div">
   <img src="{{ character().image }}" alt="" class="profile-pic" />
   <div class="properties-section">
-    <div class="name">Name: {{ character().name }}</div>
-    <div class="property">Gender: {{ character().gender }}</div>
-    <div class="property">Species: {{ character().species }}</div>
+    <span class="key">Name:</span>
+    <div class="name">{{ character().name }}</div>
+    <span class="key">Gender:</span>
+    <div class="property">{{ character().gender }}</div>
+    <span class="key">Species:</span>
+    <div class="property">{{ character().species }}</div>
   </div>
   <div class="properties-section">
-    <div class="property">Status: {{ character().status }}</div>
-    <div class="property">type: {{ character().type }}</div>
+    <span class="key">Status:</span>
+    <div class="property">{{ character().status }}</div>
+    <span class="key">type:</span>
+    <div class="property">{{ character().type }}</div>
   </div>
   <div class="action-section">
     <span class="edit" (click)="openEditor()"></span>

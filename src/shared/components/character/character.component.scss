@@ -18,34 +18,58 @@
     border-radius: 14px;
   }
   .properties-section {
+    margin-left: 1em;
     width: 30%;
     display: flex;
+    flex-direction: column;
+    @include desktop {
+      flex-direction: row;
+    }
     .name {
+      @include desktop {
+        margin: 0 2em;
+      }
       @include fluid-mobile(font-size, 12px, 14px);
     }
-    .property {
+    .key {
+      font-weight: 700;
       @include fluid-mobile(font-size, 12px, 14px);
-      @include fluid-mobile(line-height, 12px, 14px);
+      @include fluid-mobile(line-height, 15px, 20px);
+    }
+    .property {
+      @include desktop {
+        margin: 0 2em;
+      }
+      @include fluid-mobile(font-size, 12px, 14px);
+      @include fluid-mobile(line-height, 15px, 20px);
     }
   }
 
   .action-section {
     margin: 0 auto;
     .edit {
+      cursor: pointer;
       display: flex;
-      @include fluid-mobile(width height, 15px, 20px);
+      @include fluid-mobile(width height, 25px, 35px);
       background: url('../../../assets/images/edit-black.png');
       background-size: contain;
       border: 1px solid;
+      &:hover {
+        box-shadow: 0 7px 21.38px #0345a81a;
+      }
     }
 
     .delete {
+      cursor: pointer;
       margin-top: 1em;
       display: flex;
-      @include fluid-mobile(width height, 15px, 20px);
+      @include fluid-mobile(width height, 25px, 35px);
       background: url('../../../assets/images/delete.png');
       background-size: contain;
       border: 1px solid;
+      &:hover {
+        box-shadow: 0 7px 21.38px #0345a81a;
+      }
     }
   }
 }
