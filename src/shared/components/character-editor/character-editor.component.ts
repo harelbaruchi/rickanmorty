@@ -64,7 +64,7 @@ export class CharacterEditorComponent implements OnInit {
 
   initCharacterForm() {
     const characterDetails = this.character();
-    if (characterDetails !== null) {
+    if (characterDetails) {
       this.characterForm.patchValue({ ...characterDetails });
       this.isNewCharacter.set(false);
     } else {

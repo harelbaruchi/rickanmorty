@@ -25,6 +25,13 @@
     @include fluid-mobile(margin-top, 15px, 20px);
     .btn {
       background: transparent;
+      border: 1px solid;
+      &:hover {
+        color: $purple;
+        background: #000000;
+        border: 1px solid $purple;
+        cursor: pointer;
+      }
     }
   }
 

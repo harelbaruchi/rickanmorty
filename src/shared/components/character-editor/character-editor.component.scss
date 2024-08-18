@@ -32,6 +32,17 @@
     @include fluid-mobile(width height, 15px, 20px);
   }
 
+  .btn {
+    border: 1px solid;
+    background-color: transparent;
+    &:hover:not(:disabled) {
+      cursor: pointer;
+      border: 1px solid $purple;
+      color: $purple;
+      background-color: #000000;
+    }
+  }
+
   .character-form {
     width: 50%;
     margin: 0 auto;
